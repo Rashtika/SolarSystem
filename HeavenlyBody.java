@@ -8,10 +8,29 @@ public final class HeavenlyBody {
     private final double orbitalPeriod;
     private final Set<HeavenlyBody> satellites;
 
-    public HeavenlyBody(String name, double orbitalPeriod) {
+    private final BodyTypes bodyType;
+
+    public enum BodyTypes {
+        STAR,
+        PLANET,
+        DWARF_PLANET,
+        MOON,
+        COMET,
+        ASTEROID
+    }
+
+//    public static final int STAR = 1;
+//    public static final int PLANET = 2;
+//    public static final int DWARF_PLANET = 3;
+//    public static final int MOON = 4;
+//    public static final int COMET = 5;
+//    public static final int ASTEROID = 6;
+
+    public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
         this.satellites = new HashSet<>();
+        this.bodyType = bodyType;
     }
 
     public String getName() {
@@ -36,7 +55,7 @@ public final class HeavenlyBody {
         }
         System.out.println("obj.getClass() is " + obj.getClass());
         System.out.println("this.getClass() is " + this.getClass());
-        if ((obj == null) || (obj.getClass() != this.getClass())) { // ako probamo pozvati .getClass() metodu od null dobili bi null pointer exception, zato imamo taj prvi uvjet
+        if ((obj == null) || (obj.getClass() != this.getClass())) {
             return false;
         }
         String objName = ((HeavenlyBody) obj).getName();
@@ -45,6 +64,7 @@ public final class HeavenlyBody {
 
     @Override
     public int hashCode() {
-        return this.name.hashCode();
+        System.out.println("hashcode called");
+        return this.name.hashCode() + 57;
     }
 }
