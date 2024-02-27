@@ -19,13 +19,6 @@ public final class HeavenlyBody {
         ASTEROID
     }
 
-//    public static final int STAR = 1;
-//    public static final int PLANET = 2;
-//    public static final int DWARF_PLANET = 3;
-//    public static final int MOON = 4;
-//    public static final int COMET = 5;
-//    public static final int ASTEROID = 6;
-
     public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
